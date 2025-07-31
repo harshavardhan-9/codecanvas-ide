@@ -1,12 +1,15 @@
-export default function FileExplorer() {
+function FileExplorer() {
   return (
-    <div className="w-1/5 bg-gray-100 p-4 border-r border-gray-300 h-full">
-      <p className="font-medium">Files</p>
-      <ul className="mt-2">
-        <li>index.html</li>
-        <li>style.css</li>
-        <li>script.js</li>
+    <div className="p-4">
+      <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
+        Files
+      </h2>
+      <ul className="space-y-2">
+        <li className="text-gray-700 dark:text-gray-300">index.html</li>
+        <li className="text-gray-700 dark:text-gray-300">styles.css</li>
+        <li className="text-gray-700 dark:text-gray-300">app.js</li>
       </ul>
     </div>
   );
 }
+export default FileExplorer;
