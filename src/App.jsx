@@ -39,15 +39,17 @@ import "./App.css";
 */
 
 function App() {
+  const [code, setCode] = useState(`<html><body><h1>Hello World</h1></body></html>`);
+
   return (
     <div className="flex flex-col h-screen">
       <Navbar />
       <div className="flex flex-1">
         <div className="w-1/2 p-2 bg-gray-100">
-          <CodeEditor />
+          <CodeEditor code={code} setCode={setCode} />
         </div>
         <div className="w-1/2 p-2 bg-white">
-          <Preview />
+          <Preview code={code} />
         </div>
       </div>
     </div>
