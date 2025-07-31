@@ -2,6 +2,10 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Navbar from "./components/Navbar";
+import FileExplorer from "./components/FileExplorer";
+import CodeEditor from "./components/CodeEditor";
+import Preview from "./components/Preview";
 
 /*function App() {
   const [count, setCount] = useState(0)
@@ -32,12 +36,24 @@ import './App.css'
   )
 }
 */
+
+
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <h1 className="text-4xl font-bold text-blue-600">Tailwind is working! 🎉</h1>
+    <div className="flex flex-col h-screen">
+      <Navbar />
+      <div className="flex flex-1">
+        <FileExplorer />
+        <div className="w-3/5 border-r border-gray-300">
+          <CodeEditor />
+        </div>
+        <div className="w-1/5">
+          <Preview />
+        </div>
+      </div>
     </div>
   );
 }
 
-export default App
+export default App;
+
