@@ -1,10 +1,23 @@
+import Editor from "@monaco-editor/react";
+
 function CodeEditor({ code, setCode }) {
   return (
-    <textarea
-      className="w-full h-full p-2 border resize-none font-mono text-sm"
+    <Editor
+      height="100%"
+      defaultLanguage="html"
+      defaultValue={code}
       value={code}
-      onChange={(e) => setCode(e.target.value)}
+      onChange={(value) => setCode(value)}
+      theme="vs-dark"
+      options={{
+        fontSize: 14,
+        minimap: { enabled: false },
+        wordWrap: "on",
+        scrollBeyondLastLine: false,
+        automaticLayout: true,
+      }}
     />
   );
 }
+
 export default CodeEditor;
