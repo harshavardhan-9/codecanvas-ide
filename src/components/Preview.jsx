@@ -1,16 +1,27 @@
-import { useEffect, useRef } from "react";
-
 function Preview({ code }) {
-  const iframeRef = useRef(null);
+  const srcDoc = `
+    <html>
+      <head>
+        <style>${code.css}</style>
+      </head>
+      <body>
+        ${code.html}
+        <script>${code.js}</script>
+      </body>
+    </html>
+  `;
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      iframeRef.current.srcdoc = code;
-    }, 300); // debounce to avoid lag
-
-    return () => clearTimeout(timeout);
-  }, [code]);
-
-  return <iframe ref={iframeRef} className="w-full h-full border" title="Preview Output" />;
+  return (
+    <iframe
+      srcDoc={srcDoc}
+      title="Live Preview"
+      sandbox="allow-scripts"
+      frameBorder="0"
+      width="100%"
+      height="100%"
+      className="bg-white"
+    />
+  );
 }
+
 export default Preview;

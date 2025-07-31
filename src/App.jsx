@@ -39,22 +39,53 @@ import "./App.css";
 */
 
 function App() {
-  const [code, setCode] = useState(`<html><body><h1>Hello World</h1></body></html>`);
+  const [activeTab, setActiveTab] = useState("html");
+  const [code, setCode] = useState({
+    html: "<h1>Hello World</h1>",
+    css: "h1 { color: blue; }",
+    js: "console.log('Hello from JS')"
+  });
+
+  const handleCodeChange = (value) => {
+    setCode({ ...code, [activeTab]: value });
+  };
 
   return (
     <div className="flex flex-col h-screen">
-      <Navbar />
+      <Navbar code={code} />
       <div className="flex flex-1">
-        <div className="w-1/2 p-2 bg-gray-100">
-          <CodeEditor code={code} setCode={setCode} />
+        <FileExplorer />
+        <div className="flex flex-col flex-1">
+          {/* Tab Buttons */}
+          <div className="flex space-x-4 bg-gray-900 text-white px-4 py-2">
+            {["html", "css", "js"].map((lang) => (
+              <button
+                key={lang}
+                onClick={() => setActiveTab(lang)}
+                className={`capitalize ${
+                  activeTab === lang ? "border-b-2 border-blue-500 font-semibold" : "opacity-60"
+                }`}
+              >
+                {lang}
+              </button>
+            ))}
+          </div>
+
+          {/* Code Editor */}
+          <div className="flex-1 overflow-hidden">
+            <CodeEditor
+              code={code[activeTab]}
+              setCode={handleCodeChange}
+              language={activeTab}
+            />
+          </div>
         </div>
-        <div className="w-1/2 p-2 bg-white">
-          <Preview code={code} />
-        </div>
+
+        {/* Live Preview */}
+        <Preview code={code} />
       </div>
     </div>
   );
 }
 
 export default App;
-
