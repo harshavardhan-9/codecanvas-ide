@@ -1,8 +1,4 @@
-export default function Preview() {
-  return (
-    <iframe
-      title="Preview"
-      className="w-full h-full border-l border-gray-300"
-    />
-  );
+function Preview() {
+  return <iframe className="w-full h-full border" title="Preview Output" />;
 }
+export default Preview;

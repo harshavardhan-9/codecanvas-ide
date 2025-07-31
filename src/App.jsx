@@ -6,9 +6,10 @@ import Navbar from "./components/Navbar";
 import FileExplorer from "./components/FileExplorer";
 import CodeEditor from "./components/CodeEditor";
 import Preview from "./components/Preview";
+import "./App.css";
 
 /*function App() {
-  const [count, setCount] = useState(0)
+  const [count, setount] = useState(0)
 
   return (
     <>
@@ -37,17 +38,15 @@ import Preview from "./components/Preview";
 }
 */
 
-
 function App() {
   return (
     <div className="flex flex-col h-screen">
       <Navbar />
       <div className="flex flex-1">
-        <FileExplorer />
-        <div className="w-3/5 border-r border-gray-300">
+        <div className="w-1/2 p-2 bg-gray-100">
           <CodeEditor />
         </div>
-        <div className="w-1/5">
+        <div className="w-1/2 p-2 bg-white">
           <Preview />
         </div>
       </div>

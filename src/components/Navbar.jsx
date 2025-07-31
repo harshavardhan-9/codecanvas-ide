@@ -1,7 +1,8 @@
-export default function Navbar() {
+function Navbar() {
   return (
-    <div className="w-full bg-gray-800 text-white p-4 font-semibold text-lg">
+    <div className="bg-blue-600 text-white p-4 text-lg font-bold">
       CodeCanvas IDE
     </div>
   );
 }
+export default Navbar;
