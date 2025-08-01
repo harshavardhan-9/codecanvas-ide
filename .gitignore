@@ -7,22 +7,39 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Dependencies
+node_modules/
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# Build output
+dist/
+dist-ssr/
+build/
+
+# dotenv files
+.env
+.env.*    # catches .env.local, .env.production, etc.
+
+# OS/system files
 .DS_Store
+Thumbs.db
+
+# IDEs/editors
+.vscode/
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
-node_modules/
-dist/
-.env
+# Tailwind cache (optional but recommended)
+.tailwindcache/
+
+# Docker
+Dockerfile
+.dockerignore
+*.local
+docker-compose.override.yml
+
+# Git
+.git/
